@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/nulink-nft?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 100
+      auto-commit: true
+      pool-name: XCarHikariCP
+      max-lifetime: 28770000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      transaction:
+        rollback-on-commit-failure: true
+
+contracts:
+  start: 8750000
+  step: 500
+  enabled: true
+  contractList:
+    -
+      name: 'XCarNFT'
+      address: '0xdc479220ad98B5eaac308218Eb1d9a6d222F6fe0'
+      enabled: true
+    -
+      name: 'XracerStakingPool'
+      address: '0x829e62f57e243180605858548e0051D5582c3A51'
+      enabled: true
+
+web3j:
+  client-address: https://interrpc.abeychain.com
+  admin-client: true # to manage accounts, enable the admin client
+  httpTimeoutSeconds: 35

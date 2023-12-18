@@ -1,0 +1,65 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/nulink_nft?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 100
+      auto-commit: true
+      pool-name: XCarHikariCP
+      max-lifetime: 28770000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      transaction:
+        rollback-on-commit-failure: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+contracts:
+  start: 30613221
+  step: 500
+  enabled: true
+  contractList:
+    -
+      name: 'BlindBox'
+      address: '0xC6eA1A7b931AeC9D9A873f1dEC17729cd933d8F9'
+      enabled: true
+    -
+      name: 'AddrController'
+      address: '0xF96b2e46f465d9306ddcEBe1152754345B63Ed45'
+      enabled: false
+    -
+      name: 'Recommend'
+      address: '0x2484e6F2a17813C7cb90545E4d5a8973DEb6464A'
+      enabled: true
+    -
+      name: 'EncloNFT'
+      address: '0x8AeBf9fb8840e65C8111fD8b329D5CBDaEeAC2cE'
+      enabled: true
+    -
+      name: 'ZK'
+      address: '0x4f2f3bb5c9edea96C27671C41eF6Edc514883917'
+      enabled: false
+    -
+      name: 'Gain'
+      address: '0x6045942c747C7e9330f5A422497Bff7de5E432f8'
+      enabled: false
+
+web3j:
+  client-address: https://bsc-testnet.blastapi.io/10a027f1-75f8-430e-bb1d-83a4f23a0349
+  admin-client: true # to manage accounts, enable the admin client
+  httpTimeoutSeconds: 35
+
+knife4j:
+  enable: true
+  setting:
+    language: en-US
